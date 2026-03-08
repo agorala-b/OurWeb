@@ -13,7 +13,7 @@ layout: person
 linkedin: null
 order: 1
 photo: /assets/images/people/../default_avatar.svg
-role_group: Members
+role_group: Member
 scholar: null
 services:
   conferences: []

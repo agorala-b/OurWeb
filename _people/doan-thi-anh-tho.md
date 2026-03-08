@@ -28,7 +28,7 @@ layout: person
 linkedin: null
 order: 1
 photo: /assets/images/people/doan_thi_anh_tho.jpg
-role_group: Members
+role_group: Member
 scholar: null
 services:
   activities:

@@ -5,7 +5,7 @@ layout: default
 <div class="agil-section" style="max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem;">
     <h1 class="agil-section-title" style="margin-bottom: 3rem; color: var(--agil-primary);">Our People</h1>
 
-    {% assign roles = "Executive Board,Research Assistants,Interns,Alumni" | split: "," %}
+    {% assign roles = "Executive Board,Member,Research Assistants,Interns,Alumni" | split: "," %}
 
     {% for role in roles %}
     {% assign matched_people = site.people | where: "role_group", role | sort: "order" %}
