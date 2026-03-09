@@ -1,0 +1,26 @@
+# Profile mới — Phạm Toàn (Research Assistant)
+# Tạo profile placeholder theo yêu cầu restructure hierarchy
+name: Phạm Toàn
+title: Research Assistant
+department: Agora Intelligence Lab (AgIL)
+email: toan.pham@agil.org
+photo: ../default_avatar.svg
+linkedin: 
+github: 
+scholar: 
+
+about: Research member at Agora Intelligence Lab (AgIL).
+
+educations:
+  - degree: Researcher
+    institution: Agora Intelligence Lab
+    year: 2025
+    field: Artificial Intelligence
+
+publications: []
+
+awards: []
+
+services:
+  conferences: []
+  journals: []

@@ -1,0 +1,88 @@
+/* ===== GLOBAL ===== */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  background: #fafafa;
+  color: #333;
+}
+
+/* ===== LAYOUT ===== */
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  display: flex;
+  gap: 60px;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 260px;
+  text-align: center;
+}
+
+.sidebar img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 5px solid #eee;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.meta {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.social {
+  margin-top: 15px;
+  text-align: left;
+}
+
+.social a {
+  display: block;
+  text-decoration: none;
+  color: #444;
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.social a:hover {
+  color: #007acc;
+}
+
+/* ===== CONTENT ===== */
+.content {
+  flex: 1;
+}
+
+.section {
+  margin-bottom: 35px;
+}
+
+.section h2 {
+  font-size: 24px;
+  border-bottom: 2px solid #e5e5e5;
+  padding-bottom: 6px;
+  margin-bottom: 15px;
+}
+
+.section ul {
+  padding-left: 20px;
+}
+
+.section li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+a {
+  color: #007acc;
+}

@@ -1,0 +1,25 @@
+# FIX BUG 4: Thêm department và scholar (trường bắt buộc cho render)
+# Vấn đề: thiếu department → hiển thị 'undefined', thiếu scholar → link hỏng
+# Test: mở profile.html?m=le_minh_viet, kiểm tra không có 'undefined'
+name: Lê Minh Việt
+# Cập nhật role: UnderGrad Student → Research Assistant (theo hierarchy mới)
+title: Research Assistant
+department: Financial Technology and Digital Business
+email: 24070480@vnu.edu.vn
+photo: le_minh_viet.jpg
+linkedin: https://www.linkedin.com/in/vi%E1%BB%87t-lee-821500329/
+github: https://github.com/Vlet0
+scholar: 
+
+about: Le Minh Viet was born in Hanoi, Vietnam, in 2006. He is currently pursuing a degree in Financial Technology and Digital Business at the International School - Vietnam National University, Hanoi (VNU-IS). He is deeply invested in advancing his research in Machine Learning applications, particularly in Dynamic Knowledge Graphs and ontology mapping. Furthermore, he has a strong interest in the technical challenges of protein structure prediction and aims to apply his analytical skills to solve interdisciplinary problems.
+educations:
+  - degree: Bachelor
+    institution: International School - Vietnam National University, Hanoi
+    year: 2024
+    field: Financial Technology and Digital Business
+
+awards: []
+
+services: 
+  conferences: []
+  journals: []

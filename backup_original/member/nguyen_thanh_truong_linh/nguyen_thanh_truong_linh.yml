@@ -1,0 +1,37 @@
+# FIX BUG 4: Thêm scholar key; publications giữ nguyên format string
+# Test: mở profile.html?m=nguyen_thanh_truong_linh
+name: Nguyen Thanh Truong Linh
+# Cập nhật role: Student → Research Assistant (theo hierarchy mới)
+title: Research Assistant
+department: Financial Technology and Digital Business
+email: 24070368@vnu.edu.vn
+photo: nguyen_thanh_truong_linh.jpg
+linkedin: https://www.linkedin.com/in/nguy%E1%BB%85n-thanh-tr%C6%B0%E1%BB%9Dng-linh-37145436b/
+github: https://github.com/Shikitrglinh06
+scholar: 
+
+about: >
+  Nguyen Thanh Truong Linh | Undergraduate Researcher in Fintech Digital Business in IS-VNU.
+  I am an undergraduate student with a profound passion for uncovering the fundamental nature 
+  of scientific inquiries. Rather than settling for surface-level knowledge, I prioritize 
+  grasping the underlying principles and the operational logic governing every theory. 
+  Currently, I am focused on exploring novel research methodologies, optimizing dataset 
+  utilization, and systematizing specialized terminology. My ultimate goal is to contribute 
+  multifaceted and precise insights to the scientific community.
+
+educations:
+  - degree: Student
+    institution: Viet Nam National University Ha Noi, Viet Nam.
+    year: 2024-
+    field: Computer Science, Artificial Intelligence, Fintech, Large Language Models & Computer Vision.
+
+publications:
+  - "N. D., Q.-A., Nguyen, M.-H., Nguyen, T. D., Doan, Q. B., Ha, P. V., Do Thi, K. O., Nguyen, T. T. L., & Ha, M.-H. (2025). Spatial-temporal dynamics skeletal graph-based human action recognition for Vietnamese traffic police gestures."
+
+awards:
+  - Outstanding Student in Extracurricular Activities – VNU Level
+
+services: 
+  conferences:
+    - 2nd Asia Meeting on Environment and Electrical Engineering.
+  journals: []

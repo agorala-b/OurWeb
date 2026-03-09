@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Member Profile</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- YAML Parser -->
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <img id="photo">
+      <div class="name" id="name"></div>
+      <div class="meta" id="meta"></div>
+
+      <div class="social">
+        <a id="linkedin" target="_blank">LinkedIn</a>
+        <a id="github" target="_blank">GitHub</a>
+        <a id="scholar" target="_blank">Google Scholar</a>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+      <div class="section">
+        <h2>About Me</h2>
+        <p id="about"></p>
+      </div>
+
+      <div class="section">
+        <h2>Education</h2>
+        <ul id="education"></ul>
+      </div>
+
+      <div class="section">
+        <h2>Publications</h2>
+        <p><a id="publications" target="_blank">View Publications</a></p>
+      </div>
+
+      <div class="section">
+        <h2>Awards</h2>
+        <ul id="awards"></ul>
+      </div>
+
+      <div class="section">
+        <h2>Services</h2>
+        <ul id="services"></ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!--
+  FIX BUG 5: Thêm null-safety cho tất cả YAML fields optional
+  - Vấn đề: YAML thiếu trường → JS crash khi .forEach() trên null
+  - Fix: kiểm tra Array.isArray() trước forEach, fallback ''
+  - Test: mở member/index.html, console không có lỗi
+-->
+  <script>
+    fetch("member.yml")
+      .then(response => response.text())
+      .then(text => {
+        const data = jsyaml.load(text);
+
+        // Sidebar
+        document.getElementById("photo").src = data.photo || '';
+        document.getElementById("name").innerText = data.name || data.Name || '';
+
+        document.getElementById("meta").innerHTML =
+          (data.title || '') + "<br>" +
+          (data.department || '') + "<br>" +
+          (data.email || '');
+
+        document.getElementById("linkedin").href = data.linkedin || '#';
+        document.getElementById("github").href = data.github || '#';
+        document.getElementById("scholar").href = data.schorlar || data.scholar || '#';
+
+        // About
+        document.getElementById("about").innerText = data.about || '';
+
+        // Education — kiểm tra null
+        if (Array.isArray(data.educations)) {
+          data.educations.forEach(e => {
+            document.getElementById("education").innerHTML +=
+              "<li><b>" + (e.degree || '') + "</b> - " + (e.field || '') +
+              "<br>" + (e.institution || '') + " (" + (e.year || '') + ")</li>";
+          });
+        }
+
+        // Publications
+        var pubEl = document.getElementById("publications");
+        if (typeof data.publications === 'string' && data.publications.trim()) {
+          pubEl.href = data.publications;
+        } else if (Array.isArray(data.publications) && data.publications.length > 0) {
+          pubEl.removeAttribute("href");
+          pubEl.parentElement.innerHTML = '<ul>' +
+            data.publications.map(p => '<li>' + p + '</li>').join('') + '</ul>';
+        }
+
+        // Awards — kiểm tra null
+        if (Array.isArray(data.awards)) {
+          data.awards.forEach(a => {
+            document.getElementById("awards").innerHTML += "<li>" + a + "</li>";
+          });
+        }
+
+        // Services — kiểm tra null
+        if (data.services) {
+          var servicesEl = document.getElementById("services");
+          if (Array.isArray(data.services.conferences)) {
+            data.services.conferences.forEach(s => {
+              servicesEl.innerHTML += "<li>" + s + "</li>";
+            });
+          }
+          if (Array.isArray(data.services.journals)) {
+            data.services.journals.forEach(s => {
+              servicesEl.innerHTML += "<li>" + s + "</li>";
+            });
+          }
+          if (Array.isArray(data.services.activities)) {
+            data.services.activities.forEach(s => {
+              servicesEl.innerHTML += "<li>" + s + "</li>";
+            });
+          }
+        }
+
+      })
+      .catch(err => {
+        console.error("[member/index.html] Lỗi khi load/parse member.yml:", err);
+      });
+  </script>
+
+</body>
+
+</html>

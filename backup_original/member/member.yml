@@ -1,0 +1,39 @@
+name: Pham Ngoc
+title: Phd/Msc/UnderGrad Student or else
+department: CS/CE/ etc
+email: yourmail@yourschool.edu
+photo: yourname.png
+linkedin: link_here
+github: link_here
+schorlar: link_here
+
+about: Short Introdcution about you
+
+educations:
+  - degree: Ph.D
+    institution: University of Texas at Arlington, USA
+    year: 2025
+    field:  Computer Science & Engineering
+  - degree: MSc
+    institution: Sungkyunkwan University, South Korea
+    year: 2013
+    field: Electrical & Computer Engineering
+
+
+publications: https://scholar.google.com/citations?user=IEvlMosAAAAJ&hl=en
+
+awards: # Array
+  - Dissertation Fellowship Grant, 2025
+  - Graduate Dean’s Summer Research Grant, 2024
+  - Travel Grant from IROS, 2023
+
+# Review services 
+services: 
+  conferences: # Array
+    - EEE International Conference on Robotics and Automation (ICRA 24, 25, 26)
+    - IEEE International Conference on Intelligent Robots and Systems (IROS 23, 24, 25)
+    -  Winter Conference on Applications of Computer Vision (WCACV 2024, 2026)
+  journals: # Array
+    - IEEE Robotics and Automation Letters (RA-L 23, 25)
+    - IEEE Transaction on Informatics (2024)
+    - IEEE Transaction Mobile Computing (TMC 23, 24)

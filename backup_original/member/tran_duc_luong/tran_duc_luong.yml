@@ -1,0 +1,24 @@
+# FIX BUG 4: Thêm department, scholar (trường bắt buộc cho render)
+# Test: mở profile.html?m=tran_duc_luong
+name: Trần Đức Lương
+# Cập nhật role: UnderGrad Student → Research Assistant (theo hierarchy mới)
+title: Research Assistant
+department: Financial Technology and Digital Business
+email: 24071495@vnu.edu.vn
+photo: tran_duc_luong.jpg
+linkedin: www.linkedin.com/in/lương-trần-5683133b4
+github: https://github.com/luong006
+scholar: 
+
+about: Born in Hanoi, Vietnam, in 2006, he is currently pursuing a degree in Financial Technology and Digital Business at the International School, Vietnam National University, Hanoi (VNU-IS). He is strongly committed to advancing his research in Machine Learning applications. In addition, he has a keen interest in finance and the practical application of AI to address real-world challenges in social media.
+educations:
+  - degree: Bachelor
+    institution: International School - Vietnam National University, Hanoi
+    year: 2024
+    field: Financial Technology and Digital Business
+
+awards: []
+
+services: 
+  conferences: []
+  journals: []

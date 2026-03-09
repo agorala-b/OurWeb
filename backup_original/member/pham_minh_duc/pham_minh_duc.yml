@@ -1,0 +1,26 @@
+# Profile mới — Phạm Minh Đức (Co-Chair)
+# Tạo profile placeholder theo yêu cầu restructure hierarchy
+name: Phạm Minh Đức
+title: Co-Chair
+department: Agora Intelligence Lab (AgIL)
+email: duc.pm@agil.org
+photo: ../default_avatar.svg
+linkedin: 
+github: 
+scholar: 
+
+about: Research member at Agora Intelligence Lab (AgIL). Focused on computer vision, deep learning, and intelligent systems.
+
+educations:
+  - degree: Researcher
+    institution: Agora Intelligence Lab
+    year: 2025
+    field: Artificial Intelligence
+
+publications: []
+
+awards: []
+
+services:
+  conferences: []
+  journals: []

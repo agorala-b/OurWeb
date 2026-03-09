@@ -1,0 +1,26 @@
+# Profile mới — Phạm Phương Thảo (Co-Chair)
+# Tạo profile placeholder theo yêu cầu restructure hierarchy
+name: Phạm Phương Thảo
+title: Co-Chair
+department: Agora Intelligence Lab (AgIL)
+email: thao.pp@agil.org
+photo: ../default_avatar.svg
+linkedin: 
+github: 
+scholar: 
+
+about: Research member at Agora Intelligence Lab (AgIL). Passionate about AI research, natural language processing, and technology applications.
+
+educations:
+  - degree: Researcher
+    institution: Agora Intelligence Lab
+    year: 2025
+    field: Artificial Intelligence
+
+publications: []
+
+awards: []
+
+services:
+  conferences: []
+  journals: []

@@ -1,0 +1,38 @@
+# =================================================================
+# THƯ VIỆN PUBLICATIONS (AUTO-GENERATED)
+# File này được tạo tự động bởi scripts/bib2yaml.py
+# VUI LÒNG KHÔNG SỬA TRỰC TIẾP FILE NÀY.
+# 
+# Hướng dẫn cập nhật:
+# 1. Mở file publications.bib
+# 2. Paste BibTeX export từ Google Scholar vào file
+# 3. Chạy lệnh: python3 scripts/bib2yaml.py
+# =================================================================
+
+- title: "Interpretable Landslide Risk Assessment via Machine Learning and Explainable AI"
+  authors: "Duc Quang-Anh Nguyen, Ha Phuong Vu, Ba Tung Duong Le, Hanh Thi Mai, Hoa Do Thanh"
+  year: 2025
+  journal: "Proceedings of the International Student Science Forum"
+  pdf: "https://example.com/paper/landslide-risk-2025"
+  thumbnail: "example_pub.png"
+  paper_link: "https://example.com/paper/landslide-risk-2025"
+  github_link: ""
+
+- title: "Aspect-Based Sentiment Analysis for Vietnamese Educational Reviews"
+  authors: "Minh Anh Nguyen, Pham Minh Duc, Phuong Thao Pham"
+  year: 2024
+  journal: "Journal of Educational Data Mining"
+  doi: "https://doi.org/10.1234/jedm.2024.123"
+  pdf: "https://example.com/paper/absa-vietnamese-2024"
+  thumbnail: "example_pub.png"
+  paper_link: "https://doi.org/10.1234/jedm.2024.123"
+  github_link: ""
+
+- title: "Deep learning models for opinion mining in E-commerce platforms"
+  authors: "Minh Viet Le, Toan Pham"
+  year: 2023
+  journal: "International Journal of Artificial Intelligence Applications"
+  doi: "https://doi.org/10.5121/ijaia.2023.14102"
+  thumbnail: "example_pub.png"
+  paper_link: "https://doi.org/10.5121/ijaia.2023.14102"
+  github_link: ""

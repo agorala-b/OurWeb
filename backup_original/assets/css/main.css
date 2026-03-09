@@ -1,0 +1,1102 @@
+/*
+ * ============================================================
+ * AgIL Lab — Unified Stylesheet
+ * Palette chủ đạo: xanh lá #339966 + trắng
+ * Lý do tạo file: thay thế des.css, mem.css, style.css
+ * (gộp tất cả vào một file duy nhất để dễ maintain)
+ * Rollback: xoá file này, khôi phục link cũ trong HTML
+ * ============================================================
+ */
+
+/* ===================== CSS CUSTOM PROPERTIES ===================== */
+:root {
+    /* Màu chính */
+    --primary: #339966;
+    --primary-light: #3db576;
+    --primary-dark: #2a7d53;
+    --bg: #ffffff;
+    --muted: #f5f7f6;
+    --text: #1f2937;
+    --text-light: #6b7280;
+    --border: #e5e7eb;
+
+    /* Typography — Đổi font chính sang Calibri */
+    --font-family: Calibri, Arial, sans-serif;
+    --font-mono: Courier, monospace;
+    --font-size-base: 16px;
+    --font-size-sm: 0.875rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+    --font-size-4xl: 2.5rem;
+
+    /* Spacing (8px grid) */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 16px;
+    --space-4: 24px;
+    --space-5: 32px;
+    --space-6: 48px;
+    --space-7: 64px;
+    --space-8: 96px;
+
+    /* Misc */
+    --radius: 8px;
+    --radius-lg: 16px;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.05);
+    --transition: 0.25s ease;
+}
+
+/* ===================== RESET & BASE ===================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: var(--font-size-base);
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Font phụ: Courier chỉ dùng cho code block, dataset ID, metadata */
+code,
+pre,
+.dataset-id,
+.metadata {
+    font-family: var(--font-mono);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.3;
+    color: var(--text);
+}
+
+/* ===================== UTILITY ===================== */
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+.section-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+    color: var(--text);
+}
+
+.section-subtitle {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    margin-bottom: var(--space-3);
+    color: var(--primary);
+    display: inline-block;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: var(--space-2);
+}
+
+/* ===================== NAVBAR (sticky top, green) ===================== */
+/*
+ * Cấu trúc navbar: Logo ngoài cùng bên trái, menu căn giữa
+ * Lý do sửa: yêu cầu menu nằm chính giữa thanh navbar
+ * Kỹ thuật: position:absolute cho nav-links để căn giữa tuyệt đối
+ * Test: kiểm tra logo bên trái, menu chính giữa trên desktop
+ */
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.site-nav .nav-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+    height: 60px;
+}
+
+.site-nav .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: #fff;
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    text-decoration: none;
+    z-index: 2;
+}
+
+/* Menu căn giữa bằng position absolute + transform */
+.site-nav .nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+}
+
+.site-nav .nav-links a {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    text-decoration: none;
+    padding: var(--space-1) 0;
+    border-bottom: 2px solid transparent;
+    transition: color var(--transition), border-color var(--transition);
+}
+
+.site-nav .nav-links a:hover,
+.site-nav .nav-links a.active {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+/* Hamburger (mobile) */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-2);
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    margin: 5px 0;
+    transition: transform var(--transition), opacity var(--transition);
+    border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    /* Mobile: menu dropdown thay vì centered */
+    .site-nav .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 60px;
+        transform: none;
+        background: var(--primary);
+        padding: var(--space-3);
+        box-shadow: var(--shadow-md);
+        gap: 0;
+    }
+
+    .site-nav .nav-links.open {
+        display: flex;
+    }
+
+    .site-nav .nav-links a {
+        padding: var(--space-3) var(--space-4);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+    }
+}
+
+/* ===================== HERO / ABOUT SECTION ===================== */
+.hero {
+    padding: var(--space-4) 0 var(--space-3);
+    background: radial-gradient(circle at 70% 50%, rgba(51, 153, 102, 0.05), transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(0, 123, 255, 0.03), transparent 40%);
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: var(--font-size-4xl);
+    font-weight: 800;
+    margin-bottom: var(--space-2);
+    line-height: 1.15;
+}
+
+.hero-text h1 span {
+    color: var(--primary);
+}
+
+.hero-text p {
+    color: var(--text-light);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-2);
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: var(--primary);
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: var(--radius);
+    transition: background var(--transition), transform var(--transition);
+}
+
+.hero-cta:hover {
+    background: var(--primary-dark);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-visual img {
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 50px rgba(51, 153, 102, 0.15), 0 10px 30px rgba(0, 123, 255, 0.1);
+    max-height: 320px;
+    object-fit: cover;
+    transition: transform var(--transition);
+}
+
+.hero-visual img:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: var(--font-size-3xl);
+    }
+
+    .hero-visual {
+        order: -1;
+    }
+}
+
+/* ===================== ABOUT SECTION (full-width text) ===================== */
+.about-section {
+    padding-top: var(--space-5);
+    /* 32px */
+    padding-bottom: var(--space-3);
+    /* 16px - Giảm bottom padding để thu hẹp khoảng cách vs carousel */
+}
+
+.about-section h2 {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+    color: var(--primary);
+}
+
+.about-section p {
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: var(--space-2);
+    text-align: justify;
+    font-size: var(--font-size-base);
+}
+
+.about-section p:last-child {
+    margin-bottom: 0;
+    /* Loại bỏ margin-bottom thừa của đoạn cuối cùng tránh cộng dồn */
+}
+
+/* ===================== CAROUSEL ===================== */
+.carousel-section {
+    padding-top: var(--space-4);
+    /* 24px - Tổng khoảng cách 16px (about) + 24px (carousel) = 40px chuẩn */
+    padding-bottom: var(--space-5);
+    overflow: hidden;
+}
+
+.carousel {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.carousel-slide .slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-4);
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+    color: #fff;
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    transition: background var(--transition), transform var(--transition);
+    z-index: 2;
+    color: var(--text);
+}
+
+.carousel-btn:hover {
+    background: #fff;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-prev {
+    left: 16px;
+}
+
+.carousel-next {
+    right: 16px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3) 0;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border);
+    border: none;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+}
+
+.carousel-dot.active {
+    background: var(--primary);
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .carousel-slide img {
+        height: 240px;
+    }
+}
+
+/* ===================== NEWS SECTION ===================== */
+.news-section {
+    padding: var(--space-3) 0;
+}
+
+.news-section h2 {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+    color: var(--primary);
+}
+
+.news-card {
+    background: var(--muted);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+    margin-bottom: var(--space-3);
+    transition: box-shadow var(--transition), transform var(--transition);
+    border-left: 4px solid var(--primary);
+}
+
+.news-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.news-card h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-2);
+}
+
+.news-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* ===================== MEMBERS ===================== */
+.members-page {
+    padding: var(--space-6) 0 var(--space-8);
+}
+
+.members-page .page-title {
+    text-align: center;
+    font-size: var(--font-size-4xl);
+    font-weight: 800;
+    margin-bottom: var(--space-7);
+}
+
+.members-page .page-title span {
+    color: var(--primary);
+}
+
+.member-role-section {
+    margin-bottom: var(--space-7);
+    text-align: center;
+}
+
+.member-role-section h2 {
+    color: var(--primary);
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    margin-bottom: var(--space-5);
+    display: inline-block;
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: var(--space-2);
+}
+
+.member-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-5);
+    justify-content: center;
+}
+
+.member-card {
+    width: 200px;
+    text-align: center;
+    transition: transform var(--transition);
+}
+
+.member-card:hover {
+    transform: translateY(-4px);
+}
+
+.member-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto var(--space-3);
+    border: 4px solid var(--muted);
+    transition: border-color var(--transition), transform var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.member-card a:hover img {
+    border-color: var(--primary);
+    transform: scale(1.06);
+}
+
+.member-card h3 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    margin-bottom: var(--space-1);
+    color: var(--text);
+}
+
+.member-card .role-badge {
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    color: #fff;
+    background: var(--primary);
+    padding: 2px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.member-card .role-badge.chair {
+    background: var(--primary-dark);
+}
+
+.member-card .role-badge.co-chair {
+    background: var(--primary);
+}
+
+.member-card .role-badge.member {
+    background: var(--text-light);
+}
+
+.member-card .role-badge.ra {
+    background: #3b82f6;
+}
+
+.member-card .role-badge.intern {
+    background: #f59e0b;
+    color: var(--text);
+}
+
+.member-card p.role-text {
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+    font-style: italic;
+}
+
+@media (max-width: 576px) {
+    .member-card {
+        width: 160px;
+    }
+
+    .member-card img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* ===================== PROFILE PAGE ===================== */
+.profile-container {
+    max-width: 1100px;
+    margin: var(--space-5) auto;
+    display: flex;
+    gap: var(--space-7);
+    padding: 0 var(--space-4);
+}
+
+.profile-sidebar {
+    width: 280px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/*
+ * Sửa lỗi: avatar bị lệch vì img có display:block (global reset)
+ * → text-align:center trên parent không có tác dụng
+ * Cách sửa: thêm margin: 0 auto để căn giữa block element
+ * Test: mở profile.html?m=le_minh_viet, kiểm tra ảnh nằm chính giữa
+ */
+.profile-sidebar img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid var(--muted);
+    object-fit: cover;
+    box-shadow: var(--shadow-md);
+    margin: 0 auto;
+}
+
+.profile-sidebar .name {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin-top: var(--space-3);
+}
+
+.profile-sidebar .meta {
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+    margin-top: var(--space-2);
+    line-height: 1.7;
+}
+
+/* Sửa lỗi: social links căn giữa cùng trục với avatar và tên */
+.profile-sidebar .social {
+    margin-top: var(--space-3);
+    text-align: center;
+}
+
+.profile-sidebar .social a {
+    display: inline-block;
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--primary);
+}
+
+.profile-sidebar .social a:hover {
+    color: var(--primary-dark);
+}
+
+.profile-content {
+    flex: 1;
+}
+
+.profile-content .section {
+    margin-bottom: var(--space-5);
+}
+
+.profile-content .section h2 {
+    font-size: var(--font-size-2xl);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: var(--space-2);
+    margin-bottom: var(--space-3);
+    color: var(--primary);
+}
+
+.profile-content .section ul {
+    padding-left: var(--space-4);
+    list-style: disc;
+}
+
+.profile-content .section li {
+    margin-bottom: var(--space-2);
+    line-height: 1.7;
+}
+
+.profile-content .section a {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-5);
+    }
+
+    .profile-sidebar {
+        width: 100%;
+    }
+
+    .profile-content {
+        width: 100%;
+    }
+}
+
+/* ===================== PUBLICATIONS ===================== */
+.publications-page {
+    padding: var(--space-6) 0 var(--space-8);
+}
+
+.pub-card {
+    display: flex;
+    gap: var(--space-4);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: var(--space-4);
+    transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.pub-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.pub-card .pub-thumb {
+    width: 260px;
+    min-height: 195px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.pub-card .pub-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pub-card .pub-info {
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+.pub-card .pub-info h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin-bottom: var(--space-1);
+}
+
+.pub-card .pub-info .pub-authors {
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+    margin-bottom: var(--space-2);
+}
+
+.pub-card .pub-info .pub-year {
+    font-size: var(--font-size-sm);
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+}
+
+.pub-card .pub-info .pub-abstract {
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: var(--space-3);
+}
+
+.pub-card .pub-buttons {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: 8px 18px;
+    border-radius: var(--radius);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 1.5px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.btn-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .pub-card {
+        flex-direction: column;
+    }
+
+    .pub-card .pub-thumb {
+        width: 100%;
+        min-height: 200px;
+    }
+}
+
+/* ===================== RESEARCH / ACTIVITIES / DATASETS ===================== */
+.page-section {
+    padding: var(--space-6) 0 var(--space-8);
+}
+
+.page-section .page-title {
+    text-align: center;
+    font-size: var(--font-size-4xl);
+    font-weight: 800;
+    margin-bottom: var(--space-4);
+}
+
+.page-section .page-title span {
+    color: var(--primary);
+}
+
+.page-section .page-desc {
+    text-align: center;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto var(--space-6);
+    font-size: var(--font-size-lg);
+}
+
+/* Project tiles */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-4);
+}
+
+.project-tile {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.project-tile:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.project-tile img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.project-tile .tile-body {
+    padding: var(--space-4);
+}
+
+.project-tile .tile-body h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-2);
+}
+
+.project-tile .tile-body p {
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: var(--space-3);
+}
+
+.tag {
+    display: inline-block;
+    background: var(--muted);
+    color: var(--primary-dark);
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-right: var(--space-1);
+}
+
+/* Timeline for activities */
+.timeline {
+    position: relative;
+    padding-left: var(--space-5);
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--primary);
+    opacity: 0.3;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--space-5);
+    padding-left: var(--space-4);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 0 3px rgba(51, 153, 102, 0.2);
+}
+
+.timeline-item .date {
+    font-size: var(--font-size-sm);
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: var(--space-1);
+}
+
+.timeline-item h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-1);
+}
+
+.timeline-item p {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+/* Dataset table */
+.dataset-list {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--space-4);
+}
+
+.dataset-list th,
+.dataset-list td {
+    text-align: left;
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--border);
+}
+
+.dataset-list th {
+    background: var(--muted);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    color: var(--text);
+}
+
+.dataset-list td {
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+}
+
+.dataset-list tr:hover td {
+    background: var(--muted);
+}
+
+/* ===================== FOOTER ===================== */
+.site-footer {
+    background: var(--muted);
+    border-top: 1px solid var(--border);
+    padding: var(--space-4) 0;
+    margin-top: var(--space-5);
+}
+
+.footer-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+.footer-container h3 {
+    color: var(--primary);
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    margin-bottom: var(--space-3);
+}
+
+.footer-container p {
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: var(--space-1);
+}
+
+.footer-container a {
+    color: var(--primary);
+}
+
+.footer-container a:hover {
+    color: var(--primary-dark);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border);
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+}
+
+/* ===================== PLACEHOLDER / ADMIN NOTES ===================== */
+.admin-note {
+    background: #fffbeb;
+    border: 1px dashed #f59e0b;
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    font-size: var(--font-size-sm);
+    color: #92400e;
+    margin-bottom: var(--space-4);
+}
+
+/* ===================== ANIMATIONS ===================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-in {
+    animation: fadeInUp 0.6s ease forwards;
+}

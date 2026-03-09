@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  [ui] Trang Activities — timeline events
+  Lý do: tạo trang mới cho lab activities/events
+  Rollback: xoá file này
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities — AgIL</title>
+    <meta name="description" content="Events, news, and activities from Agora Intelligence Lab.">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/images/carousel/slide_1.png" alt="AgIL Logo"
+                    style="height: 50px; width: auto; border-radius: 4px;">
+            </a>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="research.html">Research</a>
+                <a href="member.html">Members</a>
+                <a href="publications.html">Publications</a>
+                <a href="datasets.html">Datasets</a>
+                <a href="activities.html" class="active">Activities</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-section">
+        <div class="container">
+            <h1 class="page-title">Lab <span>Activities</span></h1>
+            <p class="page-desc">Stay updated with the latest events, workshops, talks, and happenings at AgIL.</p>
+
+            <div class="timeline">
+
+                <div class="timeline-item animate-in">
+                    <div class="date">March 2025</div>
+                    <h3>International Student Science Forum 2025</h3>
+                    <p>AgIL members presented research on "Interpretable Landslide Risk Assessment via Machine Learning
+                        and xAI" at the International Student Science Forum 2025.</p>
+                </div>
+
+                <div class="timeline-item animate-in">
+                    <div class="date">January 2025</div>
+                    <h3>Lab Founded</h3>
+                    <p>Agora Intelligence Lab (AgIL) was officially established as an independent, open research lab
+                        focused on multi-disciplinary AI research.</p>
+                </div>
+
+                <div class="timeline-item animate-in">
+                    <div class="date">Ongoing</div>
+                    <h3>Sentiment Analysis Research</h3>
+                    <p>Continuing research on state-of-the-art techniques for sentiment analysis and opinion mining,
+                        covering sentence-level, document-level, and aspect-based approaches in education and commercial
+                        product domains.</p>
+                </div>
+
+            </div>
+
+            <div class="admin-note" style="margin-top: var(--space-6);">
+                <strong>📋 Note for maintainers:</strong> Add new events by creating a new
+                <code>&lt;div class="timeline-item"&gt;</code> block with date, title (h3), and description (p). For
+                data-driven management, consider a YAML file in <code>activities/data/</code>.
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p><strong>Agora Intelligence Lab — AgIL</strong></p>
+                <p>Email: <a href="mailto:nlp@uit.edu.vn">nlp@uit.edu.vn</a></p>
+            </div>
+            <div class="footer-bottom">&copy; 2026 AgIL. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

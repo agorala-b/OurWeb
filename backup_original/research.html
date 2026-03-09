@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  [ui] Trang Research — scaffold layout cho research projects
+  Lý do: tạo trang mới cho lab research overview
+  Rollback: xoá file này
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research — AgIL</title>
+    <meta name="description" content="Explore research areas and projects at Agora Intelligence Lab.">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/images/carousel/slide_1.png" alt="AgIL Logo"
+                    style="height: 50px; width: auto; border-radius: 4px;">
+            </a>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="research.html" class="active">Research</a>
+                <a href="member.html">Members</a>
+                <a href="publications.html">Publications</a>
+                <a href="datasets.html">Datasets</a>
+                <a href="activities.html">Activities</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-section">
+        <div class="container">
+            <h1 class="page-title">Our <span>Research</span></h1>
+            <p class="page-desc">Explore the research areas and ongoing projects at AgIL — spanning machine learning,
+                NLP, computer vision, AI ethics, and interdisciplinary applications.</p>
+
+            <div class="project-grid">
+
+                <!-- Project 1: NLP -->
+                <div class="project-tile animate-in">
+                    <img src="assets/images/carousel/slide_2.png" alt="Natural Language Processing">
+                    <div class="tile-body">
+                        <h3>Natural Language Processing</h3>
+                        <p>Research on sentiment analysis, opinion mining, aspect-based sentiment, and language
+                            understanding across education and commercial domains.</p>
+                        <div>
+                            <span class="tag">NLP</span>
+                            <span class="tag">Sentiment</span>
+                            <span class="tag">AgIL Core</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Computer Vision -->
+                <div class="project-tile animate-in">
+                    <img src="assets/images/carousel/slide_1.png" alt="Computer Vision & Deep Learning">
+                    <div class="tile-body">
+                        <h3>Computer Vision & Deep Learning</h3>
+                        <p>Advancing visual understanding through deep neural networks, object detection, image
+                            segmentation, and explainable visual AI systems.</p>
+                        <div>
+                            <span class="tag">CV</span>
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">xAI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: AI Ethics -->
+                <div class="project-tile animate-in">
+                    <img src="assets/images/carousel/slide_3.png" alt="AI Ethics & Society">
+                    <div class="tile-body">
+                        <h3>AI Ethics & Human-AI Interaction</h3>
+                        <p>Studying the social impact of AI, responsible AI development, interpretability, and the
+                            intersection of AI with culture and human behavior.</p>
+                        <div>
+                            <span class="tag">Ethics</span>
+                            <span class="tag">HCI</span>
+                            <span class="tag">Society</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Admin note for maintainers -->
+            <div class="admin-note" style="margin-top: var(--space-6);">
+                <strong>📋 Note for maintainers:</strong> To add a new research project, create a new
+                <code>&lt;div class="project-tile"&gt;</code> block above. In the future, consider creating a
+                <code>research/data/</code> folder with YAML files for each project (similar to publications) to
+                automate this listing.
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p><strong>Agora Intelligence Lab — AgIL</strong></p>
+                <p>Email: <a href="mailto:nlp@uit.edu.vn">nlp@uit.edu.vn</a></p>
+            </div>
+            <div class="footer-bottom">&copy; 2026 AgIL. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

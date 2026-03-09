@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  [ui] Trang Profile thành viên — nâng cấp giao diện xanh lá
+  Lý do sửa: thống nhất CSS với main.css, thêm navbar
+  Logic JS giữ nguyên (load YAML từ query string ?m=ten_member)
+  Rollback: git revert, khôi phục profile.html cũ + member/style.css
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Profile — AgIL</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+
+    <!-- YAML Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-brand">
+                <img src="../assets/images/carousel/slide_1.png" alt="AgIL Logo"
+                    style="height: 50px; width: auto; border-radius: 4px;">
+            </a>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../research.html">Research</a>
+                <a href="../member.html" class="active">Members</a>
+                <a href="../publications.html">Publications</a>
+                <a href="../datasets.html">Datasets</a>
+                <a href="../activities.html">Activities</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PROFILE LAYOUT -->
+    <div class="profile-container">
+
+        <!-- SIDEBAR -->
+        <div class="profile-sidebar">
+            <img id="photo" src="default_avatar.svg" alt="Member photo">
+            <div class="name" id="name"></div>
+            <div class="meta" id="meta"></div>
+
+            <div class="social">
+                <a id="linkedin" target="_blank">LinkedIn</a>
+                <a id="github" target="_blank">GitHub</a>
+                <a id="scholar" target="_blank">Google Scholar</a>
+            </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="profile-content">
+
+            <div class="section">
+                <h2>About Me</h2>
+                <p id="about"></p>
+            </div>
+
+            <div class="section">
+                <h2>Education</h2>
+                <ul id="education"></ul>
+            </div>
+
+            <div class="section" id="publications-section" style="display:none;">
+                <h2>Publications</h2>
+                <div id="publications"></div>
+            </div>
+
+            <div class="section" id="awards-section" style="display:none;">
+                <h2>Awards</h2>
+                <ul id="awards"></ul>
+            </div>
+
+            <div class="section" id="services-section" style="display:none;">
+                <h2>Services</h2>
+                <div id="services"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p><strong>Agora Intelligence Lab — AgIL</strong></p>
+                <p>Email: <a href="mailto:nlp@uit.edu.vn">nlp@uit.edu.vn</a></p>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 AgIL. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <!--
+    Logic load YAML profile — giữ nguyên từ code cũ, chỉ cập nhật class names
+    FIX: profile page load ảnh jpg đúng path, handle cả 'name'/'Name', null-safety
+  -->
+    <script>
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const memberName = params.get("m");
+
+            if (!memberName) {
+                document.querySelector(".profile-content").innerHTML =
+                    '<p style="color:red;">Lỗi: Thiếu tham số member. Sử dụng: profile.html?m=ten_member</p>';
+                console.error("[profile.html] Thiếu query param ?m=ten_member");
+                return;
+            }
+
+            const ymlPath = memberName + "/" + memberName + ".yml";
+
+            fetch(ymlPath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Không tìm thấy file YAML: " + ymlPath + " (HTTP " + response.status + ")");
+                    }
+                    return response.text();
+                })
+                .then(text => {
+                    const data = jsyaml.load(text);
+                    const name = data.name || data.Name || '';
+
+                    // Sidebar — FIX: normalize image path, prepend folder
+                    const photoPath = data.photo ? memberName + "/" + normalizeImagePath(data.photo) : 'default_avatar.svg';
+                    document.getElementById("photo").src = photoPath;
+                    document.getElementById("name").innerText = name;
+                    document.title = name + " — AgIL Member Profile";
+
+                    document.getElementById("meta").innerHTML =
+                        (data.title || '') + "<br>" +
+                        (data.department || '') + "<br>" +
+                        (data.email || '');
+
+                    // Social links — hide nếu không có
+                    const linkedinEl = document.getElementById("linkedin");
+                    const githubEl = document.getElementById("github");
+                    const scholarEl = document.getElementById("scholar");
+
+                    if (data.linkedin && data.linkedin.trim()) { linkedinEl.href = data.linkedin; }
+                    else { linkedinEl.style.display = 'none'; }
+
+                    if (data.github && data.github.trim()) { githubEl.href = data.github; }
+                    else { githubEl.style.display = 'none'; }
+
+                    const scholarLink = data.schorlar || data.scholar || '';
+                    if (scholarLink && scholarLink.trim()) { scholarEl.href = scholarLink; }
+                    else { scholarEl.style.display = 'none'; }
+
+                    // About
+                    document.getElementById("about").innerText = data.about || '';
+
+                    // Education
+                    if (Array.isArray(data.educations)) {
+                        data.educations.forEach(e => {
+                            document.getElementById("education").innerHTML +=
+                                "<li><b>" + (e.degree || '') + "</b> — " + (e.field || '') +
+                                "<br>" + (e.institution || '') + " (" + (e.year || '') + ")</li>";
+                        });
+                    }
+
+                    // Publications
+                    var pubEl = document.getElementById("publications");
+                    var pubSection = document.getElementById("publications-section");
+                    if (typeof data.publications === 'string' && data.publications.trim()) {
+                        if (data.publications.startsWith('http')) {
+                            pubEl.innerHTML = '<a href="' + data.publications + '" target="_blank" class="btn btn-primary">View Publications</a>';
+                        } else {
+                            pubEl.innerHTML = '<p>' + data.publications + '</p>';
+                        }
+                        pubSection.style.display = '';
+                    } else if (Array.isArray(data.publications) && data.publications.length > 0) {
+                        var html = '<ul>';
+                        data.publications.forEach(p => { html += '<li>' + p + '</li>'; });
+                        html += '</ul>';
+                        pubEl.innerHTML = html;
+                        pubSection.style.display = '';
+                    }
+
+                    // Awards
+                    if (Array.isArray(data.awards) && data.awards.length > 0) {
+                        document.getElementById("awards-section").style.display = '';
+                        data.awards.forEach(a => {
+                            document.getElementById("awards").innerHTML += "<li>" + a + "</li>";
+                        });
+                    }
+
+                    // Services
+                    if (data.services) {
+                        var servicesEl = document.getElementById("services");
+                        var hasServices = false;
+
+                        if (Array.isArray(data.services.conferences) && data.services.conferences.length > 0) {
+                            servicesEl.innerHTML += "<h3>Conferences</h3><ul>";
+                            data.services.conferences.forEach(s => { servicesEl.innerHTML += "<li>" + s + "</li>"; });
+                            servicesEl.innerHTML += "</ul>";
+                            hasServices = true;
+                        }
+                        if (Array.isArray(data.services.journals) && data.services.journals.length > 0) {
+                            servicesEl.innerHTML += "<h3>Journals</h3><ul>";
+                            data.services.journals.forEach(s => { servicesEl.innerHTML += "<li>" + s + "</li>"; });
+                            servicesEl.innerHTML += "</ul>";
+                            hasServices = true;
+                        }
+                        if (Array.isArray(data.services.activities) && data.services.activities.length > 0) {
+                            servicesEl.innerHTML += "<h3>Activities</h3><ul>";
+                            data.services.activities.forEach(s => { servicesEl.innerHTML += "<li>" + s + "</li>"; });
+                            servicesEl.innerHTML += "</ul>";
+                            hasServices = true;
+                        }
+                        if (hasServices) {
+                            document.getElementById("services-section").style.display = '';
+                        }
+                    }
+
+                })
+                .catch(err => {
+                    document.querySelector(".profile-content").innerHTML =
+                        '<p style="color:red;">Lỗi khi tải profile: ' + err.message + '</p>';
+                    console.error("[profile.html] Lỗi:", err);
+                });
+        })();
+    </script>
+
+</body>
+
+</html>

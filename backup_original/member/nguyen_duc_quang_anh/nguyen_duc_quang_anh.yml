@@ -1,0 +1,34 @@
+# Profile mới — Nguyễn Đức Quang Anh (Chair / Executive Board)
+# Tạo profile placeholder cho Chair theo yêu cầu restructure hierarchy
+name: Nguyễn Đức Quang Anh
+title: Chair
+department: Agora Intelligence Lab (AgIL)
+email: quanganh@agil.org
+photo: ../default_avatar.svg
+linkedin: 
+github: 
+scholar: 
+
+about: >
+  Nguyễn Đức Quang Anh is the founder and chair of Agora Intelligence Lab (AgIL).
+  His research interests span machine learning, natural language processing, computer vision,
+  and explainable AI. He leads multiple research projects with a focus on applying AI
+  to solve real-world problems in disaster management, agriculture, and healthcare.
+
+educations:
+  - degree: Researcher
+    institution: Agora Intelligence Lab
+    year: 2025
+    field: Artificial Intelligence
+
+publications:
+  - "Quang-Anh N.D., Ha Phuong Vu, Duong Le Ba Tung, Nga Phung Mai, Hoa Do Thanh. (2025). Transparent AI for Disaster Management: Explainable Landslide Prediction Models to Support Decision-Making."
+  - "Quang-Anh N.D., Ha Phuong Vu, Duong Le Ba Tung, Nga Phung Mai, Hoa Do Thanh. (2025). Interpretable Landslide Risk Assessment via Machine Learning and xAI."
+  - "Quang-Anh N.D., Duc Minh Pham, Hung Ha Manh, Minh-Anh Nguyen, Duong Le Ba Tung, Lan-Anh Do Thi, Phuong Ngan Pham. Efficient Multi-Scale Attention Based on MobileNetV4. MCO 2025."
+  - "Quang-Anh Nguyen Duc, Dinh-Thai Kim, Minh-Anh Nguyen, Thao Pham Phuong, Ha Phuong Vu, Duc Pham Minh, Dinh-Truong Kim. (2025). ArborNet: Featherweight Representation Learning for Real-Time Cashew Nut Quality Classification."
+
+awards: []
+
+services:
+  conferences: []
+  journals: []

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  [ui] Trang Datasets — listing datasets với metadata
+  Lý do: tạo trang mới cho lab datasets
+  Rollback: xoá file này
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datasets — AgIL</title>
+    <meta name="description" content="Open datasets published by Agora Intelligence Lab for research and development.">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/images/carousel/slide_1.png" alt="AgIL Logo"
+                    style="height: 50px; width: auto; border-radius: 4px;">
+            </a>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="research.html">Research</a>
+                <a href="member.html">Members</a>
+                <a href="publications.html">Publications</a>
+                <a href="datasets.html" class="active">Datasets</a>
+                <a href="activities.html">Activities</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-section">
+        <div class="container">
+            <h1 class="page-title">Our <span>Datasets</span></h1>
+            <p class="page-desc">Open datasets published by AgIL for the research community. Download and use freely
+                under the specified license terms.</p>
+
+            <table class="dataset-list">
+                <thead>
+                    <tr>
+                        <th>Dataset</th>
+                        <th>Domain</th>
+                        <th>Format</th>
+                        <th>Size</th>
+                        <th>License</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Vietnamese Sentiment Corpus</strong><br><small
+                                style="color:var(--text-light);">Sentence-level sentiment annotations for education
+                                reviews</small></td>
+                        <td>NLP / Sentiment</td>
+                        <td>CSV</td>
+                        <td>~15 MB</td>
+                        <td>CC BY 4.0</td>
+                        <td><span class="btn btn-outline btn-disabled" title="Dataset files not yet uploaded">Coming
+                                Soon</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Landslide Risk Geospatial Data</strong><br><small
+                                style="color:var(--text-light);">Geospatial features for landslide risk
+                                prediction</small></td>
+                        <td>Geoscience / ML</td>
+                        <td>GeoJSON + CSV</td>
+                        <td>~50 MB</td>
+                        <td>MIT</td>
+                        <td><span class="btn btn-outline btn-disabled" title="Dataset files not yet uploaded">Coming
+                                Soon</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="admin-note" style="margin-top: var(--space-6);">
+                <strong>📋 Note for maintainers:</strong> When datasets are ready to publish, replace the "Coming Soon"
+                button with:
+                <code>&lt;a href="path/to/file.zip" class="btn btn-primary"&gt;Download&lt;/a&gt;</code>.
+                For automated listing, consider YAML metadata files in <code>datasets/data/</code>.
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p><strong>Agora Intelligence Lab — AgIL</strong></p>
+                <p>Email: <a href="mailto:nlp@uit.edu.vn">nlp@uit.edu.vn</a></p>
+            </div>
+            <div class="footer-bottom">&copy; 2026 AgIL. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

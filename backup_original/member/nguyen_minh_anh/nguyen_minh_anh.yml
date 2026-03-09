@@ -1,0 +1,26 @@
+# Profile mới — Nguyễn Minh Anh (Co-Chair)
+# Tạo profile placeholder theo yêu cầu restructure hierarchy
+name: Nguyễn Minh Anh
+title: Co-Chair
+department: Agora Intelligence Lab (AgIL)
+email: minhanh.ng@agil.org
+photo: ../default_avatar.svg
+linkedin: 
+github: 
+scholar: 
+
+about: Research member at Agora Intelligence Lab (AgIL). Interested in machine learning, AI applications, and data science.
+
+educations:
+  - degree: Researcher
+    institution: Agora Intelligence Lab
+    year: 2025
+    field: Artificial Intelligence
+
+publications: []
+
+awards: []
+
+services:
+  conferences: []
+  journals: []

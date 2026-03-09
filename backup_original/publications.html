@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  [ui] Trang Publications — hiển thị publication cards từ YAML
+  Lý do: tạo trang mới cho lab publications, layout card: ảnh trái + mô tả phải
+  Test: mở publications.html, kiểm tra 2 sample cards render đúng
+  Rollback: xoá file này
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications — AgIL</title>
+    <meta name="description"
+        content="Research publications from Agora Intelligence Lab covering AI, NLP, Computer Vision, and more.">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/images/carousel/slide_1.png" alt="AgIL Logo"
+                    style="height: 50px; width: auto; border-radius: 4px;">
+            </a>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="research.html">Research</a>
+                <a href="member.html">Members</a>
+                <a href="publications.html" class="active">Publications</a>
+                <a href="datasets.html">Datasets</a>
+                <a href="activities.html">Activities</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="publications-page">
+        <div class="container">
+            <h1 class="page-title" style="text-align:center; margin-bottom: var(--space-4);">Our <span
+                    style="color:var(--primary);">Publications</span></h1>
+            <p
+                style="text-align:center; color:var(--text-light); max-width:700px; margin:0 auto var(--space-6); font-size:var(--font-size-lg);">
+                Explore our research papers, conference proceedings, and journal articles.
+            </p>
+
+            <div id="pub-list">
+                <!-- Publication cards được render bằng JS từ YAML -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p><strong>Agora Intelligence Lab — AgIL</strong></p>
+                <p>Email: <a href="mailto:nlp@uit.edu.vn">nlp@uit.edu.vn</a></p>
+            </div>
+            <div class="footer-bottom">&copy; 2026 AgIL. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        /**
+         * Load publications từ file YAML tổng hợp (auto-generated từ BibTeX)
+         * File YAML chứa array các object: title, authors, year, journal, doi, pdf, abstract, ...
+         */
+        (async function () {
+            const container = document.getElementById('pub-list');
+            const dataFile = 'publications/data/publications.yml';
+
+            try {
+                const resp = await fetch(dataFile);
+                if (!resp.ok) throw new Error("File not found");
+
+                const text = await resp.text();
+                // Parse YAML file containing an array of publications
+                let publications = jsyaml.load(text) || [];
+
+                // Đảm bảo là array
+                if (!Array.isArray(publications)) {
+                    publications = [];
+                }
+
+                // JS fall-back sort theo year giảm dần (script build đã sort rồi nhưng sort lại cho chắc)
+                publications.sort((a, b) => {
+                    const yearA = parseInt(a.year) || 0;
+                    const yearB = parseInt(b.year) || 0;
+                    return yearB - yearA;
+                });
+
+                if (publications.length === 0) {
+                    container.innerHTML = '<p style="text-align:center; color:var(--text-light);">No publications available yet.</p>';
+                    return;
+                }
+
+                publications.forEach(pub => {
+                    const thumbSrc = pub.thumbnail
+                        ? 'publications/images/' + pub.thumbnail
+                        : 'publications/images/example_pub.png';
+
+                    const hasGithub = pub.github_link && pub.github_link.trim();
+                    const hasPaper = pub.paper_link && pub.paper_link.trim();
+                    const journalText = pub.journal ? `<div class="pub-journal" style="font-style: italic; color: var(--text-light); margin-bottom: var(--space-2);">${pub.journal}</div>` : '';
+
+                    const card = document.createElement('div');
+                    card.className = 'pub-card animate-in';
+                    card.innerHTML = `
+            <div class="pub-thumb">
+              <img src="${thumbSrc}" alt="${pub.title || 'Publication thumbnail'}">
+            </div>
+            <div class="pub-info">
+              <h3>${pub.title || 'Untitled'}</h3>
+              <div class="pub-authors">${pub.authors || ''}</div>
+              ${journalText}
+              <div class="pub-year">${pub.year || ''}</div>
+              <div class="pub-abstract">${pub.abstract || ''}</div>
+              <div class="pub-buttons">
+                ${hasGithub
+                            ? `<a href="${pub.github_link}" target="_blank" class="btn btn-outline" title="View source code on GitHub">
+                      GitHub
+                    </a>`
+                            : ''
+                        }
+                ${hasPaper
+                            ? `<a href="${pub.paper_link}" target="_blank" class="btn btn-primary" title="Read the full paper">
+                      View Paper
+                    </a>`
+                            : ''
+                        }
+              </div>
+            </div>
+          `;
+                    container.appendChild(card);
+                });
+            } catch (err) {
+                console.error('[publications.html] Lỗi load publications:', err);
+                container.innerHTML = '<p style="text-align:center; color:var(--text-light);">No publications available yet.</p>';
+            }
+        })();
+    </script>
+
+</body>
+
+</html>

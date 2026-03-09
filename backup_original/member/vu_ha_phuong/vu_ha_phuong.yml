@@ -1,0 +1,33 @@
+# FIX BUG 4: Sửa YAML indent lỗi (educations), thêm services block
+# Vấn đề: institution/year/field không indent dưới degree → YAML parse sai
+# CRLF → LF, thêm services.conferences/journals cho JS không crash
+# Test: mở profile.html?m=vu_ha_phuong
+name: Vu Ha Phuong
+# Cập nhật role: UnderGrad Student → Member (theo hierarchy mới)
+title: Member
+department: English Linguistics, Education
+email: vhpwork1204@gmail.com
+photo: vu_ha_phuong.jpg
+linkedin: https://www.linkedin.com/in/ha-phuong-vu-17210a248/
+github: 
+scholar: https://scholar.google.com/citations?hl=vi&authuser=1&user=IXFwFVsAAAAJ
+
+about: I am currently an undergraduate student at Vietnam National University, Hanoi, majoring in English Linguistics and Education. My academic interests focus on applied linguistics, language education, discourse analysis, and the integration of technology in language teaching and learning. I adopt an interdisciplinary approach that combines linguistics, pedagogy, and digital tools to explore issues related to effective communication, language acquisition, and innovative educational practices.
+
+educations:
+  - degree: Bachelor
+    institution: International School - Vietnam National University, Hanoi
+    year: 2022 - present
+    field: English Linguistics
+
+publications:
+  - "Quang-Anh N.D, Ha Phuong Vu, Duong Le Ba Tung, Nga Phung Mai, Hoa Do Thanh. (2025). Transparent AI for Disaster Management: Explainable Landslide Prediction Models to Support Decision-Making."
+  - "Quang-Anh N.D, Ha Phuong Vu, Duong Le Ba Tung, Nga Phung Mai, Hoa Do Thanh. (2025). Interpretable Landslide Risk Assessment via Machine Learning and xAI."
+  - "Quang-Anh N.D, Mai-Hanh Nguyen Thi, Tien Dat Nguyen, Quoc Bao Doan, Ha Phuong Vu, Kieu Oanh Do Thi, Truong Linh Nguyen Thanh, Manh-Hung Ha*. (2025). Spatial-Temporal Dynamics Skeletal Graph-Based Human Action Recognition for Vietnamese Traffic Police Gestures."
+  - "Quang-Anh Nguyen Duc, Dinh-Thai Kim*, Minh-Anh Nguyen, Thao Pham Phuong, Ha Phuong Vu, Duc Pham Minh, Dinh-Truong Kim. (2025). ArborNet: Featherweight Representation Learning for Real-Time Cashew Nut Quality Classification."
+
+awards: []
+
+services:
+  conferences: []
+  journals: []

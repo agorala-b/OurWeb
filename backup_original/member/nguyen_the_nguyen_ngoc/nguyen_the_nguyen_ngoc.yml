@@ -1,0 +1,26 @@
+# Sample Intern Profile — INTERN_NAME_PLACEHOLDER
+# Thay thế tên thực tế khi deploy
+# Cách test: mở member/profile.html?m=intern_placeholder
+name: Nguyễn Thế Nguyên Ngọc
+title: Intern
+department: To be updated
+email: intern@example.com
+photo:
+linkedin:
+github:
+scholar:
+
+about: This is a placeholder profile for a new intern. Please update with the actual intern's information.
+
+educations:
+  - degree: Bachelor
+    institution: To be updated
+    year: 2025
+    field: To be updated
+
+publications: []
+awards: []
+
+services:
+  conferences: []
+  journals: []

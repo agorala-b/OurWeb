@@ -1,0 +1,175 @@
+/* Base Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #ffffff;
+}
+
+/* Header & Navigation */
+header {
+    position: relative;
+    /* Thiết lập để làm gốc căn chỉnh cho nav */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 60px;
+    background-color: #ffffff;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    /* Không cần justify-self nữa vì đã dùng flex */
+}
+
+nav {
+    position: absolute;
+    /* Tách thanh nav ra khỏi luồng thông thường */
+    left: 50%;
+    /* Đẩy sang phải 50% màn hình */
+    transform: translateX(-50%);
+    /* Lùi lại đúng một nửa chiều rộng của chính nó để vào chính giữa */
+}
+
+/* Các đoạn sau giữ nguyên */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #777;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+nav a.active,
+nav a:hover {
+    color: #222;
+}
+
+/* Biểu tượng tìm kiếm */
+#search-btn {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+/* FIX: căn lề trái phần danh sách member thay vì căn giữa */
+.member-role-section {
+    margin-bottom: 60px;
+    text-align: left;
+    /* Thay text-align: center bằng left */
+}
+
+.member-role-section h2 {
+    color: #3b71f7;
+    font-size: 2rem;
+    font-weight: normal;
+    margin-bottom: 40px;
+    display: inline-block;
+    border-bottom: 2px solid #eaeaea;
+    /* Đường gạch dưới nhẹ phân tách */
+    padding-bottom: 10px;
+}
+
+/* FIX: Căn lề trái danh sách thành viên trong grid */
+.member-grid {
+    display: flex;
+    flex-wrap: wrap;
+    /* Cho phép rớt dòng nếu nhiều thành viên */
+    gap: 50px;
+    /* Khoảng cách giữa các thành viên */
+    justify-content: flex-start;
+    /* Thay center bằng flex-start */
+}
+
+.member-card {
+    width: 200px;
+    text-align: center;
+}
+
+.member-card img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    /* Cắt ảnh vuông vức để không bị méo */
+    border-radius: 50%;
+    /* Bo tròn ảnh */
+    margin-bottom: 15px;
+    border: 3px solid transparent;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hiệu ứng khi di chuột vào ảnh (báo hiệu có thể click) */
+.member-card a:hover img {
+    border-color: #3b71f7;
+    transform: scale(1.05);
+}
+
+.member-card h3 {
+    font-size: 1.2rem;
+    color: #222;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.member-card p {
+    font-size: 0.95rem;
+    color: #777;
+    font-style: italic;
+    margin: 0;
+}
+
+/* --- Footer & Contact Section --- */
+.site-footer {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    margin-top: 60px;
+    border-top: 1px solid #eaeaea;
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.contact-info h3 {
+    color: #3b71f7;
+    /* Matches your primary blue */
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 5px;
+    font-style: normal;
+    /* Ensures it doesn't inherit the italics from main content */
+}
+
+.contact-info a {
+    color: #3b71f7;
+    text-decoration: none;
+    transition: text-decoration 0.2s ease;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}

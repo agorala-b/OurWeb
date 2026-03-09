@@ -1,0 +1,26 @@
+# Profile mới — Thu Trang (Member)
+# Tạo profile placeholder theo yêu cầu restructure hierarchy
+name: Thu Trang
+title: Member
+department: Agora Intelligence Lab (AgIL)
+email: thutrang@agil.org
+photo: ../default_avatar.svg
+linkedin: 
+github: 
+scholar: 
+
+about: Research member at Agora Intelligence Lab (AgIL).
+
+educations:
+  - degree: Researcher
+    institution: Agora Intelligence Lab
+    year: 2025
+    field: Artificial Intelligence
+
+publications: []
+
+awards: []
+
+services:
+  conferences: []
+  journals: []

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  [ui] Trang Members — nâng cấp giao diện xanh lá
+  Lý do sửa: căn giữa toàn bộ, thêm Interns section, chuyển Thanh Hoa xuống Intern
+  Thay đổi: palette #3b71f7 → #339966, thêm role badges, responsive grid
+  Rollback: git revert <hash>
+  Test: mở member.html, kiểm tra 5 sections đúng hierarchy
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members — AgIL</title>
+    <meta name="description"
+        content="Meet the team of Agora Intelligence Lab — researchers, assistants, and interns driving AI innovation.">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/images/carousel/slide_1.png" alt="AgIL Logo"
+                    style="height: 50px; width: auto; border-radius: 4px;">
+            </a>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="research.html">Research</a>
+                <a href="member.html" class="active">Members</a>
+                <a href="publications.html">Publications</a>
+                <a href="datasets.html">Datasets</a>
+                <a href="activities.html">Activities</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="members-page">
+        <div class="container">
+            <h1 class="page-title">Our <span>Members</span></h1>
+
+            <!--
+        CẤU TRÚC HIERARCHY:
+        1. Executive Board (Chair + Co-Chairs cùng 1 grid row)
+        2. Members
+        3. Research Assistants (đã bỏ Thanh Hoa)
+        4. Interns (Thanh Hoa + INTERN_NAME_PLACEHOLDER)
+      -->
+
+            <!-- EXECUTIVE BOARD: Chair + Co-Chairs cùng hàng -->
+            <section class="member-role-section">
+                <h2>Executive Board</h2>
+                <div class="member-grid">
+                    <!-- Chair -->
+                    <div class="member-card">
+                        <a href="member/profile.html?m=nguyen_duc_quang_anh">
+                            <img src="member/default_avatar.svg" alt="Nguyen Duc Quang Anh">
+                        </a>
+                        <h3>Nguyễn Đức Quang Anh</h3>
+                        <span class="role-badge chair">Chair</span>
+                    </div>
+                    <!-- Co-Chairs -->
+                    <div class="member-card">
+                        <a href="member/profile.html?m=pham_minh_duc">
+                            <img src="member/default_avatar.svg" alt="Pham Minh Duc">
+                        </a>
+                        <h3>Phạm Minh Đức</h3>
+                        <span class="role-badge co-chair">Co-Chair</span>
+                    </div>
+                    <div class="member-card">
+                        <a href="member/profile.html?m=nguyen_minh_anh">
+                            <img src="member/default_avatar.svg" alt="Nguyen Minh Anh">
+                        </a>
+                        <h3>Nguyễn Minh Anh</h3>
+                        <span class="role-badge co-chair">Co-Chair</span>
+                    </div>
+                    <div class="member-card">
+                        <a href="member/profile.html?m=pham_phuong_thao">
+                            <img src="member/default_avatar.svg" alt="Pham Phuong Thao">
+                        </a>
+                        <h3>Phạm Phương Thảo</h3>
+                        <span class="role-badge co-chair">Co-Chair</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MEMBERS -->
+            <section class="member-role-section">
+                <h2>Members</h2>
+                <div class="member-grid">
+                    <div class="member-card">
+                        <a href="member/profile.html?m=le_ba_tung_duong">
+                            <img src="member/le_ba_tung_duong/le_ba_tung_duong.jpg" alt="Le Ba Tung Duong">
+                        </a>
+                        <h3>Lê Bá Tùng Dương</h3>
+                        <span class="role-badge member">Member</span>
+                    </div>
+                    <div class="member-card">
+                        <a href="member/profile.html?m=thu_trang">
+                            <img src="member/default_avatar.svg" alt="Thu Trang">
+                        </a>
+                        <h3>Thu Trang</h3>
+                        <span class="role-badge member">Member</span>
+                    </div>
+                    <div class="member-card">
+                        <a href="member/profile.html?m=nguyen_hai_yen">
+                            <img src="member/default_avatar.svg" alt="Nguyen Hai Yen">
+                        </a>
+                        <h3>Nguyễn Hải Yến</h3>
+                        <span class="role-badge member">Member</span>
+                    </div>
+                    <div class="member-card">
+                        <a href="member/profile.html?m=vu_ha_phuong">
+                            <img src="member/vu_ha_phuong/vu_ha_phuong.jpg" alt="Vu Ha Phuong">
+                        </a>
+                        <h3>Vũ Hà Phương</h3>
+                        <span class="role-badge member">Member</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RESEARCH ASSISTANTS (Thanh Hoa đã chuyển xuống Interns) -->
+            <section class="member-role-section">
+                <h2>Research Assistants</h2>
+                <div class="member-grid">
+                    <div class="member-card">
+                        <a href="member/profile.html?m=le_minh_viet">
+                            <img src="member/le_minh_viet/le_minh_viet.jpg" alt="Le Minh Viet">
+                        </a>
+                        <h3>Lê Minh Việt</h3>
+                        <span class="role-badge ra">Research Assistant</span>
+                    </div>
+                    <div class="member-card">
+                        <a href="member/profile.html?m=pham_toan">
+                            <img src="member/default_avatar.svg" alt="Pham Toan">
+                        </a>
+                        <h3>Phạm Toàn</h3>
+                        <span class="role-badge ra">Research Assistant</span>
+                    </div>
+                    <div class="member-card">
+                        <a href="member/profile.html?m=nguyen_thi_mai_hanh">
+                            <img src="member/nguyen_thi_mai_hanh/nguyen_thi_mai_hanh.png" alt="Nguyen Thi Mai Hanh">
+                        </a>
+                        <h3>Nguyễn Thị Mai Hạnh</h3>
+                        <span class="role-badge ra">Research Assistant</span>
+                    </div>
+                    <div class="member-card">
+                        <a href="member/profile.html?m=nguyen_thanh_truong_linh">
+                            <img src="member/nguyen_thanh_truong_linh/nguyen_thanh_truong_linh.jpg"
+                                alt="Nguyen Thanh Truong Linh">
+                        </a>
+                        <h3>Nguyễn Thanh Trường Linh</h3>
+                        <span class="role-badge ra">Research Assistant</span>
+                    </div>
+                    <div class="member-card">
+                        <a href="member/profile.html?m=tran_duc_luong">
+                            <img src="member/tran_duc_luong/tran_duc_luong.jpg" alt="Tran Duc Luong">
+                        </a>
+                        <h3>Trần Đức Lương</h3>
+                        <span class="role-badge ra">Research Assistant</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- INTERNS: Thanh Hoa + INTERN_NAME_PLACEHOLDER -->
+            <section class="member-role-section">
+                <h2>Interns</h2>
+                <div class="member-grid">
+                    <!-- Thanh Hoa — chuyển từ Research Assistants xuống Interns -->
+                    <div class="member-card">
+                        <a href="member/profile.html?m=do_thanh_hoa">
+                            <img src="member/do_thanh_hoa/do_thanh_hoa.jpg" alt="Do Thanh Hoa">
+                        </a>
+                        <h3>Đỗ Thanh Hoa</h3>
+                        <span class="role-badge intern">Intern</span>
+                    </div>
+                    <!-- INTERN_NAME_PLACEHOLDER — profile mẫu, thay tên thực tế khi deploy -->
+                    <div class="member-card">
+                        <a href="member/profile.html?m=nguyen_the_nguyen_ngoc">
+                            <img src="member/default_avatar.svg" alt="nguyen_the_nguyen_ngoc">
+                        </a>
+                        <h3>Nguyễn Thế Nguyên Ngọc</h3>
+                        <span class="role-badge intern">Intern</span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p><strong>Agora Intelligence Lab — AgIL</strong></p>
+                <p>Independent Open Research Lab</p>
+                <p>Vietnam</p>
+                <p>Email: <a href="mailto:nlp@uit.edu.vn">nlp@uit.edu.vn</a></p>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 AgIL — Agora Intelligence Lab. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
