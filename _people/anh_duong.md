@@ -9,7 +9,7 @@ educations:
   year: 2023 - Present
 email: detinatran@gmail.com
 github: https://github.com/detinatran
-job_title: Undergraduate Student
+job_title: UnderGraduate Student
 layout: person
 linkedin: https://www.linkedin.com/in/detinatran/
 order: 1

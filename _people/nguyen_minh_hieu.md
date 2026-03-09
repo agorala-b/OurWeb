@@ -14,7 +14,7 @@ linkedin: https://www.linkedin.com/in/hieu-nguyen-minh-282184208
 order: 1
 photo: /assets/images/people/nguyen_minh_hieu.jpg
 publications: []
-role_group: Research Assistants
+role_group: Interns
 scholar: null
 work_experience: []
 title: Nguyen Minh Hieu

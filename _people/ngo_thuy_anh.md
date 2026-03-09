@@ -14,7 +14,7 @@ linkedin: https://www.linkedin.com/in/th%E1%BB%A7y-anh-ng%C3%B4-628820364/
 order: 1
 photo: /assets/images/people/ngo_thuy_anh.jpg
 publications: []
-role_group: Research Assistants
+role_group: Interns
 scholar: null
 work_experience: []
 title: Ngo Thuy Anh

@@ -9,13 +9,13 @@ educations:
   year: 2022 - present
 email: junia.tthoang@gmail.com
 github: null
-job_title: Undergrad Student
+job_title: UnderGraduate Student
 layout: person
 linkedin: https://www.linkedin.com/in/trang-hoa%CC%80ng-346536354/
 order: 1
 photo: /assets/images/people/hoang_thu_trang.jpg
 publications: []
-role_group: Research Assistants
+role_group: Member
 scholar: null
 work_experience: []
 title: Hoang Thu Trang

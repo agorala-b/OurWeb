@@ -13,7 +13,7 @@ layout: person
 linkedin: www.linkedin.com/in/lương-trần-5683133b4
 order: 2
 photo: /assets/images/people/tran_duc_luong.jpg
-role_group: Research Assistants
+role_group: Interns
 scholar: null
 title: Tran Duc Luong
 ---

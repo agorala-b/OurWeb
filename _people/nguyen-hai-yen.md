@@ -12,7 +12,7 @@ educations:
   year: 2025 - present
 email: haiyen270904@gmail.com / 22070953@vnu.edu.vn
 github: https://github.com/nguyenhaiyenxselina
-job_title: UnderGrad Student
+job_title: UnderGraduate Student
 layout: person
 linkedin: https://www.linkedin.com/in/h%E1%BA%A3i-y%E1%BA%BFn-270904h/
 order: 1

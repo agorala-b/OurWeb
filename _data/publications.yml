@@ -3,7 +3,7 @@
   year: 2024
   type: "conference"
   venue: "2024 9th International Conference on Integrated Circuits, Design, and System"
-  thumbnail: "assets/images/publications/traffic_light_v8.jpg"
+  thumbnail: "assets/images/Publication/traffic.png"
   paper_link: "https://www.researchgate.net/publication/382622485_Optimizing_Traffic_Light_Control_using_YOLOv8_for_Real-Time_Vehicle_Detection_and_Traffic_Density"
 
 - title: "Lychee instance segmentation at different growth stages using YOLOv8-seg model"
@@ -11,7 +11,7 @@
   year: 2024
   type: "conference"
   venue: "2024 9th International Conference on Integrated Circuits, Design, and System"
-  thumbnail: "assets/images/publications/lychee_seg.jpg"
+  thumbnail: "assets/images/Publication/lychee.png"
   paper_link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mEouKaQAAAAJ&citation_for_view=mEouKaQAAAAJ:u-x6o8ySG0sC"
 
 - title: "Emotional Vietnamese speech-based depression diagnosis using dynamic attention mechanism"
@@ -19,7 +19,7 @@
   year: 2024
   type: "conference"
   venue: "International Conference on Applied Mathematics and Computer Science"
-  thumbnail: "assets/images/publications/depression_diagnosis.jpg"
+  thumbnail: "assets/images/Publication/Emo.png"
   paper_link: "https://doi.org/10.1007/978-3-032-00267-9_23"
 
 - title: "VNEMOS: Vietnamese speech emotion inference using deep neural networks"
@@ -27,7 +27,7 @@
   year: 2024
   type: "conference"
   venue: "2024 9th International Conference on Integrated Circuits, Design, and System"
-  thumbnail: "assets/images/publications/vnemos.jpg"
+  thumbnail: "assets/images/Publication/ven.png"
   paper_link: "https://doi.org/10.1109/icdv61346.2024.10616411"
 
 - title: "Lightweight CFE-YOLOv8s-Seg model for tomato ripeness instance segmentation"
@@ -51,7 +51,7 @@
   year: 2026
   type: "journal"
   venue: "IEEE Geoscience and Remote Sensing Letters"
-  thumbnail: "assets/images/publications/colubrid_net.jpg"
+  thumbnail: "assets/images/Publication/T1.png"
   paper_link: "https://doi.org/10.1109/LGRS.2025.1545598X"
 
 - title: "Enhancing Physical Rehabilitation Evaluation with Temporal Graph Convolution Networks"
@@ -61,14 +61,6 @@
   venue: "Intelligent Systems & Networks"
   thumbnail: "assets/images/publications/rehabilitation_gcn.jpg"
   paper_link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mEouKaQAAAAJ&citation_for_view=mEouKaQAAAAJ:d1gS?_9vo_8C"
-
-- title: "Speech-based Multimodel Pipeline for Vietnamese Services Quality Assessment"
-  authors: "Nguyen, Duc Quang-Anh and Pham, Minh-Duc and Dinh, Thai Kim"
-  year: 2024
-  type: "preprint"
-  venue: "arXiv"
-  thumbnail: "assets/images/publications/service_quality.jpg"
-  paper_link: "https://arxiv.org/abs/2412.09829"
 
 - title: "Deep Temporal-Spatial Learning for Early Prediction of Human Blastocyst Formation from Time-Lapse Videos"
   authors: "Pham, Minh-Duc and Nguyen, Duc Quang-Anh and Kim, Dinh Thai and Nguyen, Van Quang and Nguyen, Minh-Anh"
@@ -155,7 +147,7 @@
   year: 2026
   type: "conference"
   venue: "IEEE International Conference on Robotics & Automation (ICRA)"
-  thumbnail: "assets/images/publications/t2_nav.jpg"
+  thumbnail: "assets/images/Publication/T2.png"
   paper_link: "https://www.researchgate.net/publication/383125416_T2-Nav_Algebraic-Topology-Aware_Temporal_Graph_Memory_and_Loop_Detection_for_Zero-Shot_Visual_Navigation"
 
 - title: "ArborNet: Featherweight Representation Learning for Real-Time Cashew Nut Quality Classification"
@@ -181,11 +173,3 @@
   venue: "EAI Endorsed Transactions on Internet of Things"
   thumbnail: "assets/images/publications/ppe_detection.jpg"
   paper_link: "https://doi.org/10.4108/eetiot.9971"
-
-- title: "A Thorough Review of Technology Aids for Children With Dyslexia"
-  authors: "Nguyen, Viet Hung and Quynh, N.T. and Nguyen, Duc Quang-Anh and Mai, Thuc N.T."
-  year: 2025
-  type: "chapter"
-  venue: "Advances in Data Science and Optimization of Complex Systems"
-  thumbnail: "assets/images/publications/dyslexia_review.jpg"
-  paper_link: "https://www.researchgate.net/profile/Quang-Anh-Nd"
