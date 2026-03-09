@@ -7,6 +7,9 @@
     <title>{% if page.title %}{{ page.title }}{% else %}Home{% endif %}: AgIL</title>
     <meta name="description"
         content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}Home{% endif %}: AgIL">
+    <meta property="og:site_name" content="AgIL">
+    <meta property="og:image" content="{{ '/assets/images/logo.png' | absolute_url }}">
 
     <link rel="icon" type="image/png" href="{{ '/assets/images/logo.png' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
