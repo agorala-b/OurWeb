@@ -189,27 +189,3 @@
   venue: "Advances in Data Science and Optimization of Complex Systems"
   thumbnail: "assets/images/publications/dyslexia_review.jpg"
   paper_link: "https://www.researchgate.net/profile/Quang-Anh-Nd"
-
-- title: "Automatic Number Plate Recognition System Using Advanced YOLO and OCR Techniques for Efficient Parking Management"
-  authors: "Nguyen, Thien Van and Nguyen, Quan-Manh and Kim, Dinh Thai and Dao, Nam-Ngoc and Nguyen, Phu-Quang and Nguyen, Le-Hoang"
-  year: 2026
-  type: "chapter"
-  venue: "Springer Book Series"
-  thumbnail: "assets/images/publications/anpr_parking.jpg"
-  paper_link: "https://doi.org/10.1007/978-981-95-1746-6_68"
-
-- title: "Efficient Nonlinear Model Predictive Control for UAV Trajectory Tracking"
-  authors: "Nguyen, Xuan-The and Kim, Dinh Thai and Le, Xuan-Hai and Nguyen, Quang-Thuan"
-  year: 2026
-  type: "chapter"
-  venue: "Springer Book Series"
-  thumbnail: "assets/images/publications/uav_control.jpg"
-  paper_link: "https://doi.org/10.1007/978-3-032-08381-4_25"
-
-- title: "Real-Time Student Behavior Detection in Classroom Using YOLOv8 Model"
-  authors: "Nguyen, Quang-Thuan and Kim, Dinh-Thai and Le, Xuan-Hai and Pham, Anh-Phuong"
-  year: 2026
-  type: "chapter"
-  venue: "Springer Book Series"
-  thumbnail: "assets/images/publications/student_behavior.jpg"
-  paper_link: "https://doi.org/10.1007/978-3-032-08384-5_20"
