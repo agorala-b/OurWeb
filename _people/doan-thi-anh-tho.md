@@ -28,9 +28,12 @@ layout: person
 linkedin: null
 order: 1
 photo: /assets/images/people/doan_thi_anh_tho.jpg
+publications:
+- Edge-Optimized YOLOv5-Seg with PAGCP Pruning for Automated Egg Quality Assessment
 role_group: Member
 scholar: null
 title: Doan Thi Anh Tho
 ---
+
 
 An aspiring FinTech and Digital Business student with a strong passion for AI applications. I specialize in app interface design and user experience optimization, with an eagerness to bridge the gap between technology and digital business solutions.
