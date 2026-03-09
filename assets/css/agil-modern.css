@@ -8,6 +8,9 @@
     --agil-text: #1f2937;
     --agil-text-light: #6b7280;
     --agil-border: #e5e7eb;
+    --agil-card-bg: #ffffff;
+    --agil-footer-bg: #1f2937;
+    --agil-footer-text: #ffffff;
 
     --agil-font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --agil-radius: 10px;
@@ -16,8 +19,23 @@
     --agil-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+[data-theme="dark"] {
+    --agil-bg: #0f172a;
+    --agil-muted: #1e293b;
+    --agil-text: #f1f5f9;
+    --agil-text-light: #94a3b8;
+    --agil-border: #334155;
+    --agil-card-bg: #1e293b;
+    --agil-footer-bg: #020617;
+    --agil-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    --agil-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+}
+
 body {
     font-family: var(--agil-font-sans);
+    background-color: var(--agil-bg);
+    color: var(--agil-text);
+    transition: background-color var(--agil-transition), color var(--agil-transition);
 }
 
 .agil-main-content {
@@ -258,8 +276,8 @@ body {
 
 /* Footer */
 .agil-footer {
-    background-color: var(--agil-text);
-    color: white;
+    background-color: var(--agil-footer-bg);
+    color: var(--agil-footer-text);
     padding: 3rem 1.5rem 1rem;
     margin-top: 4rem;
 }

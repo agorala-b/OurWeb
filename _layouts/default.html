@@ -13,6 +13,12 @@
 </head>
 
 <body>
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 
     <!-- ===== NAVBAR ===== -->
     <!-- Note: Logo + text "Agora Intelligence Lab", Center menu, Responsive -->
@@ -38,6 +44,11 @@
                     class="{% if page.url contains '/datasets' %}active{% endif %}">Dataset</a>
                 <a href="{{ '/pics.html' | relative_url }}"
                     class="{% if page.url contains '/pics' %}active{% endif %}">Pics</a>
+                <button id="theme-toggle" aria-label="Toggle Theme"
+                    style="background: none; border: none; cursor: pointer; color: var(--agil-text); font-size: 1.25rem; display: flex; align-items: center; justify-content: center; padding: 0.5rem;">
+                    <span class="theme-icon-light" style="display: none;">☀️</span>
+                    <span class="theme-icon-dark">🌙</span>
+                </button>
             </div>
         </div>
     </nav>
@@ -64,6 +75,33 @@
     </footer>
 
     <!-- JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const lightIcon = themeToggle.querySelector('.theme-icon-light');
+            const darkIcon = themeToggle.querySelector('.theme-icon-dark');
+
+            function updateIcons(theme) {
+                if (theme === 'dark') {
+                    lightIcon.style.display = 'block';
+                    darkIcon.style.display = 'none';
+                } else {
+                    lightIcon.style.display = 'none';
+                    darkIcon.style.display = 'block';
+                }
+            }
+
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            updateIcons(currentTheme);
+
+            themeToggle.addEventListener('click', () => {
+                const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+                updateIcons(theme);
+            });
+        });
+    </script>
     <script src="{{ '/assets/js/nav.js' | relative_url }}"></script>
     {% if page.custom_js %}
     {% for js in page.custom_js %}
