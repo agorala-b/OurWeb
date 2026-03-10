@@ -12,7 +12,7 @@ educations:
   year: 2024 - present
 email: 24071215@vnu.edu.vn
 github: null
-job_title: Intern
+job_title: UnderGraduate Student
 layout: person
 linkedin: https://www.linkedin.com/in/nhi-hoàng-thảo-576299367
 order: 1
