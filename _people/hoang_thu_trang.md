@@ -18,7 +18,7 @@ publications: []
 role_group: Member
 scholar: null
 work_experience: []
-title: Hoang Thu Trang
+title: Hoang Thi Thu Trang
 ---
 
 I am an early-stage researcher exploring the synergy between sustainable economics, marketing, and corporate responsibility. My current research investigates financial fraud detection and the integration of ESG factors to enhance corporate transparency. I am dedicated to using data-driven insights and market behavior analysis to foster ethical decision-making and build more resilient, responsible market systems.
