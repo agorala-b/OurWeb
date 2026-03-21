@@ -1,7 +1,7 @@
 ---
 awards:
 - Third Prize, Student Scientific Research, VNU-IS (2025)
-department: International School, Vietnam National University, Hanoi
+department: AI Mathematics, Statistics
 educations:
 - degree: Bachelor
   field: Financial Technology and Digital Business

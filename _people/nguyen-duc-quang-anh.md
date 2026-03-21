@@ -4,7 +4,7 @@ awards:
 - Top 8, SOICT Hackathon 2024
 - Third Prize, VNU Student Scientific Research Competition 2025
 - First Prize, Ideathon Edtech HUST 2025
-department: London Digital Twin Research Centre
+department:  Multidisciplinary Artifical Intellegence
 educations:
 - degree: Bachelor
   field: Applied Information Technology

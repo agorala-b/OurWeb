@@ -2,7 +2,7 @@
 awards:
 - Third Prize, Student Scientific Research, VNU-IS (2025)
 - Top 8, SOICT Hackathon (2024)
-department: International School, Vietnam National University, Hanoi
+department: Signal Processing, Machine Learning
 educations:
 - degree: Bachelor
   field: Applied Information Technology

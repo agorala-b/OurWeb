@@ -1,6 +1,6 @@
 ---
 awards: []
-department: Faculty of Computer and Information Science, VNU University of Science
+department: Bio-Inspired Robotics, Continous Processing
 educations:
 - degree: BSc
   field: Computer and Information Science
