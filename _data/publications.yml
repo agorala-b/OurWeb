@@ -187,5 +187,14 @@
     "venue": "IEICE Transactions on Information and Systems",
     "thumbnail": "assets/images/Publication/2026.png",
     "paper_link": "https://www.researchgate.net/publication/401872344_A_Hybrid_Model_of_SARIMA_and_GRU_in_Water_Level_Forecasting_Case_Study_in_Ankhe_Reservoir_Vietnam"
+  },
+  {
+    "title": "A Credit Risk Digital Twin Framework with Explainability-Guided Feature Engineering and Counterfactual Simulation",
+    "authors": "Anh Minh Hoang, Nguyen Duc Quang Anh, Quy Viet Khuat, Thao Phuong Pham,Huan Xuan Nguyen, Thu-Trang Nguyen and Tran Thi Ngan ",
+    "year": 2026,
+    "type": "Chapter",
+    "venue": "The 39th International Conference on Industrial, Engineering & Other Applications of Applied Intelligent Systems",
+    "thumbnail": "assets/images/Publication/chapter.png",
+    "paper_link": "https://www.researchgate.net/publication/401874322_A_Credit_Risk_Digital_Twin_Framework_with_Explainability-Guided_Feature_Engineering_and_Counterfactual_Simulation"
   }
 ]
