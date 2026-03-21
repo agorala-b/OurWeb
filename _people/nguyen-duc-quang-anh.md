@@ -53,4 +53,4 @@ publications:
 title: Quang-Anh N. D.
 ---
 
-Quang-Anh N. D. is a Bachelor's degree in Applied Information Technology at the International School, Vietnam National University, Hanoi. His research interests include multidisciplinary applications research on AI and Data Science.
+Quang-Anh N. D. gain his Bachelor's degree in Applied Information Technology at the International School, Vietnam National University, Hanoi. His research interests include multidisciplinary applications research on AI and Data Science.
